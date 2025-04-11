@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
 		fontFamily: fonts.heading,
 		fontSize: 15,
 		fontWeight: "700",
+		backgroundColor: "red",
 		lineHeight: 30,
 		color: colors.ui.secondary,
 		letterSpacing: 0.8,

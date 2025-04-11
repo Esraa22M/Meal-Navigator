@@ -28,12 +28,12 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 		width: "100%",
-		 marginVertical: 10,
+		margin: 10,
 	},
 	productCounter: {
 		lineHeight: 20,
 		fontSize: 16,
 		fontFamily: fonts.body,
-		marginHorizontal: 5,
+		// marginHorizontal: 5,
 	},
 });

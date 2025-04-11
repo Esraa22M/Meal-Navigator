@@ -16,7 +16,7 @@ export const ProductBody = ({ item, quantity, setQuantity }) => {
 				<View style={stylesSheet.countContainer}>
 					<ProductCount
 						iconName={"minus"}
-						quantity={quantity>1?quantity-1:1}
+						quantity={(quantity)&&true}
 						setQuantity={setQuantity}
 						bgColor={colors.ui.disabled}
 						color={colors.ui.secondary}

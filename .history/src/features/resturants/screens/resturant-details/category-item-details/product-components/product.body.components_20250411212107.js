@@ -39,5 +39,5 @@ export const ProductBody = ({ item, quantity, setQuantity }) => {
 };
 const stylesSheet = StyleSheet.create({
 	outerContainer: { justifyContent: "flex-start", margin: "5%" },
-	countContainer: { flexDirection: "row", marginVertical: 5 },
+	countContainer: { flexDirection: "row" },
 });

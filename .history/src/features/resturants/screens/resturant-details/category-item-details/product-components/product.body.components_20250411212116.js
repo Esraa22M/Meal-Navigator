@@ -38,6 +38,6 @@ export const ProductBody = ({ item, quantity, setQuantity }) => {
 	);
 };
 const stylesSheet = StyleSheet.create({
-	outerContainer: { justifyContent: "flex-start", margin: "5%" },
+	outerContainer: { justifyContent: "flex-start", },
 	countContainer: { flexDirection: "row", marginVertical: 5 },
 });
