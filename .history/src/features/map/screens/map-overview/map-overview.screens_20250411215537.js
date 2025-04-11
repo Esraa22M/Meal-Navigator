@@ -47,6 +47,9 @@ export const MapScreenOverview = ({ navigation }) => {
 						description={resturant.description}
 						onPress={() => navigation.navigate("All", { screen: "ResturantDetails", params: { resturant } })}
 					>
+						<Callout>
+							<Text>{resturant.name}</Text>
+						</Callout>
 					</Marker>
 				))}
 			</MapViewWrapper>

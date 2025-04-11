@@ -22,7 +22,6 @@ export const ResturantMapView = () => {
 	return (
 		<MapViewWrapper
 			style={{ height: "100%" }}
-			key={resturant.id}
 			region={{
 				latitude: lat,
 				longitude: lng,
