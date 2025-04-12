@@ -22,7 +22,6 @@ export const FavouritesContextProvider = ({ children }) => {
 
 	};
 	const addFavourite = (resturant) => {
-		if (isFavourite(resturant)) return;
 		setFavourites((currentFavorites) => [...currentFavorites, resturant]);
 	};
 	const removeFavourite = (resturant) => {
