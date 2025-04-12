@@ -4,8 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { View } from "react-native";
 import { colors } from "../../../../infastructure/theme/colors";
 import { LocationContext } from "../../../../services/location/location.context";
-export const Search = ({ setShowSearch }) => {
-	const { search, error, setError } = useContext(LocationContext);
+export const Search = ({setShowSearch}) => {
+	const { search } = useContext(LocationContext);
+
 	const [searchTerm, setSearchTerm] = useState("");
 	return (
 		<SearchContainer>
@@ -17,17 +18,7 @@ export const Search = ({ setShowSearch }) => {
 					marginHorizontal: 5,
 				}}
 			>
-				<Ionicons
-					name="chevron-back"
-					size={24}
-					onPress={() => {
-						setShowSearch(false);
-
-						if (error) {
-							setError(null);
-						}
-					}}
-				/>
+				<Ionicons name="chevron-back" size={24} onPress={() => { setShowSearch(false);setSearchTerm("san francisco") }} />
 			</View>
 
 			<SearchBar

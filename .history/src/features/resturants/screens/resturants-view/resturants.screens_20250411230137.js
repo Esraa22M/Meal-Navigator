@@ -12,15 +12,13 @@ import { ResturantInfoCard } from "../../components/resturant-info/resturant-inf
 import { Spacer } from "../../../../components/spacer/spacer.component";
 import { MainHeader } from "../../components/main-header/main-header.components";
 import { JumpUpButton } from "../../../../ui/jump-up/jump-up-button.components";
-import { LocationContext } from "../../../../services/location/location.context";
 import { EmptySearch } from "./empty-search/empty-search.components";
 const RestaurantListView = React.forwardRef((props, ref) => {
 	return <ResturantsList {...props} ref={ref} />;
 });
 
 export const ResturantScreen = ({ navigation }) => {
-	const { resturants, isLoading , } = useContext(ResturantContext);
-	const { error , } = useContext(LocationContext);
+	const { resturants, isLoading , error} = useContext(ResturantContext);
 	const handleNavigation = useCallback((item) => {
 		navigation?.navigate("ResturantDetails", { resturant: item });
 	},[navigation])
@@ -44,7 +42,7 @@ export const ResturantScreen = ({ navigation }) => {
 					{isLoading && <LoadingDataIndicator />}
 
 				</>
-				{!error?<ListContainer>
+				<ListContainer>
 					<RestaurantListView
 						ref={flatListRef}
 						showsVerticalScrollIndicator={false}
@@ -74,7 +72,7 @@ export const ResturantScreen = ({ navigation }) => {
 						}}
 						keyExtractor={(item) => item.name}
 					/>
-				</ListContainer>:<EmptySearch/>}
+				</ListContainer>
 			</AppWrapper>
 		</>
 	);

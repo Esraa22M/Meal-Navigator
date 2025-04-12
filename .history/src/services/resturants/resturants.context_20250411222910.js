@@ -10,18 +10,17 @@ export const ResturantContextProvider = ({ children }) => {
 	const reteriveResturants = (locationString) => {
 		setResturants([]);
 		setIsLoading(true);
-		setError(null);
-
 		setTimeout(() => {
 			resturantsRequest(locationString)
 				.then(resturantsTransform)
 				.then((resturants) => {
 					setIsLoading(false);
+					console.log(resturants);
 					setResturants(resturants);
 				})
 				.catch((err) => {
-					setIsLoading(false);
-					setError(err.message);
+					setError(err);
+					console.log(resturants);
 				});
 		}, 1500);
 	};

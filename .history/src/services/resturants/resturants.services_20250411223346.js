@@ -11,7 +11,6 @@ export const resturantsRequest = (location) => {
 	});
 };
 export const resturantsTransform = ({ results = [] }) => {
-	if (results.length === 0) throw new Error("No resturants found");
 	const mappedResults = results?.map((resturant) => {
 		resturant.photos = [...resturant?.images];
 		return {

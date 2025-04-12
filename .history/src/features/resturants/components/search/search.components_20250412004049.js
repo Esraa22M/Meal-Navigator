@@ -5,7 +5,8 @@ import { View } from "react-native";
 import { colors } from "../../../../infastructure/theme/colors";
 import { LocationContext } from "../../../../services/location/location.context";
 export const Search = ({ setShowSearch }) => {
-	const { search, error, setError } = useContext(LocationContext);
+	const { search } = useContext(LocationContext);
+
 	const [searchTerm, setSearchTerm] = useState("");
 	return (
 		<SearchContainer>
@@ -22,10 +23,6 @@ export const Search = ({ setShowSearch }) => {
 					size={24}
 					onPress={() => {
 						setShowSearch(false);
-
-						if (error) {
-							setError(null);
-						}
 					}}
 				/>
 			</View>

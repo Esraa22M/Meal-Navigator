@@ -6,6 +6,7 @@ import { colors } from "../../../../infastructure/theme/colors";
 import { LocationContext } from "../../../../services/location/location.context";
 export const Search = ({ setShowSearch }) => {
 	const { search, error, setError } = useContext(LocationContext);
+
 	const [searchTerm, setSearchTerm] = useState("");
 	return (
 		<SearchContainer>

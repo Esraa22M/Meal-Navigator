@@ -21,6 +21,7 @@ const RestaurantListView = React.forwardRef((props, ref) => {
 export const ResturantScreen = ({ navigation }) => {
 	const { resturants, isLoading , } = useContext(ResturantContext);
 	const { error , } = useContext(LocationContext);
+	console.log(error,"rrrrrrrrrrrrrrrrrrr")
 	const handleNavigation = useCallback((item) => {
 		navigation?.navigate("ResturantDetails", { resturant: item });
 	},[navigation])

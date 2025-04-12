@@ -21,6 +21,8 @@ export const LocationContextProvider = ({ children }) => {
 
 			})
 			.catch((err) => {
+				console.log("oooo||");
+				console.log(err)
 				setError(err);
 				setIsLoadingL(false);
 			});
