@@ -42,7 +42,7 @@ export const Cart = () => {
 						<FlatList
 							data={cartItems}
 							showsVerticalScrollIndicator={false}
-							keyExtractor={(item, index) => (item.id+ item.name) || index.toString()}
+							keyExtractor={(item, index) => item.id || index.toString()}
 							renderItem={({ item }) => <CartItem item={item} showToast={showToast } />}
 						/>
 					</View>

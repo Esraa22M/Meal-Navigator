@@ -38,7 +38,7 @@ export const MapScreenOverview = ({ navigation }) => {
 			>
 				{resturants.map((resturant) => (
 					<Marker
-						key={resturant?.id+resturant?.name} 
+						key={resturant.id+resturant+name} 
 						coordinate={{
 							latitude: resturant.geometry.location.lat,
 							longitude: resturant.geometry.location.lng,
