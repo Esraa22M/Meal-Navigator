@@ -32,7 +32,7 @@ export const ResturantMapView = () => {
 		>
 			<Marker
 				onPress={() =>
-					navigation.navigate("All", {
+					navigation?.navigate("All", {
 						screen: "ResturantDetails",
 						params: { resturant },
 					})

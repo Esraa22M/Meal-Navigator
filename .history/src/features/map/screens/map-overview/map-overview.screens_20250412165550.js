@@ -4,7 +4,7 @@ import { MapViewWrapper } from "./map-overview.styles";
 import { Search } from "../../components/search/search.components";
 import { LocationContext } from "../../../../services/location/location.context";
 import { ResturantContext } from "../../../../services/resturants/resturants.context";
-import { View } from "react-native";
+
 export const MapScreenOverview = ({ navigation }) => {
 	const { location } = useContext(LocationContext);
 	const { resturants = [] } = useContext(ResturantContext);
@@ -22,7 +22,7 @@ export const MapScreenOverview = ({ navigation }) => {
 	
 
 	return (
-		<View style={{width:"100%", height:"100%"}}>
+		<>
 			<Search />
 			<MapViewWrapper
 				style={{ height: "100%" , width:"100%"}}
@@ -40,13 +40,13 @@ export const MapScreenOverview = ({ navigation }) => {
 							latitude: resturant?.geometry?.location?.lat,
 							longitude: resturant?.geometry?.location?.lng,
 						}}
-						title={resturant?.name}
-						description={resturant?.description}
+						title={resturant.name}
+						description={resturant.description}
 						onPress={() => navigation?.navigate("All", { screen: "ResturantDetails", params: { resturant } })}
 					>
 					</Marker>
 				))}
 			</MapViewWrapper>
-		</View>
+		</>
 	);
 };

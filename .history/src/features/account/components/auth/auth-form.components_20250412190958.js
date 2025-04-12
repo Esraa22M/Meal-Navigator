@@ -1,5 +1,8 @@
 import { AccountBackground } from "../../screens/account/account.styles";
-import { OuterWrapper, LoginContainer } from "./auth.styles";
+import {
+	OuterWrapper,
+	LoginContainer,
+} from "./auth.styles";
 import { View, Text, Pressable } from "react-native";
 import { useCallback } from "react";
 import { colors } from "../../../../infastructure/theme/colors";
@@ -26,63 +29,59 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 	const { authenticate } = useContext(AuthenticationContext);
 	const mode = isLogin ? "login" : "register";
 	const navigation = useNavigation();
+	
+	const handleNavigation = useCallback((name) => {
+		navigation?.navigate(name);
+	},[ navigation]);
+	const authHandler = useCallback(async (email, password, mode) => {
+		try {
+			if (
+				mode === "register" &&
+				(!isValidInputData?.firstName?.isValid ||
+					!isValidInputData?.lastName?.isValid ||
+					!isValidInputData?.password?.isValid ||
+				inputData?.firstName?.value||
+				inputData?.lastName?.value||
+				inputData?.password?.value ||
+			inputData?.repeatedPassword?.value||
 
-	const handleNavigation = useCallback(
-		(name) => {
-			navigation?.navigate(name);
-		},
-		[navigation]
-	);
-	const authHandler = useCallback(
-		async (email, password, mode) => {
-			try {
-				if (
-					mode === "register" &&
-					(!isValidInputData?.firstName?.isValid ||
-						!isValidInputData?.lastName?.isValid ||
-						!isValidInputData?.password?.isValid ||
-						!inputData?.firstName?.value ||
-						!inputData?.lastName?.value ||
-						!inputData?.password?.value ||
-						!inputData?.repeatedPassword?.value ||
-						!isValidInputData?.repeatedPassword?.isValid)
-				) {
-					setIsLoading(false);
-
-					throw new Error("Invalid input , please try again.");
-				}
-				setIsLoading(true);
-				setError("");
-				let token = "";
-				if (mode === "login") {
-					token = await login(email.trim(), password.trim());
-				} else {
-					token = await createUser(email.trim(), password.trim());
-				}
-
-				authenticate(token);
+					!isValidInputData?.repeatedPassword?.isValid)
+			) {
 				setIsLoading(false);
-			} catch (err) {
-				setIsLoading(false);
-				if (
-					err.toString() ===
-						"AxiosError: Request failed with status code 400" &&
-					mode === "register"
-				) {
-					setError(
-						"An account with this email already exists.Please login instead"
-					);
-				} else if (
-					err.toString() ===
-						"AxiosError: Request failed with status code 400" &&
-					mode === "login"
-				)
-					setError("Invalid email or password");
-				else setError(err.toString());
+
+				throw new Error("Invalid input , please try again.");
 			}
-		},
-		[isValidInputData, authenticate]
-	);
+			setIsLoading(true);
+			setError("")
+			let token = "";
+			if (mode === "login") {
+				token = await login(email.trim(), password.trim());
+			} else {
+				token = await createUser(email.trim(), password.trim());
+			}
+
+			authenticate(token);
+			setIsLoading(false);
+		} catch (err) {
+			setIsLoading(false);
+			if (
+				err.toString() === "AxiosError: Request failed with status code 400" &&
+				mode === "register"
+			) {
+				setError(
+					"An account with this email already exists.Please login instead"
+				);
+			}
+			else if (
+				err.toString() === "AxiosError: Request failed with status code 400" &&
+				mode === "login"
+			)
+				setError(
+					"Invalid email or password"
+				);
+			else setError(err.toString());
+		}
+	},[isValidInputData, authenticate]);
 	const { handleDataChange, validateInput } = useContext(AuthFormContext);
 
 	const [isKeyboardVisible, setKeyboardVisible] = useState(false);
@@ -194,7 +193,8 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 									inputData.password.value,
 									mode
 								);
-							}}
+							}
+							}
 						/>
 						{mode === "login" && (
 							<View
@@ -214,15 +214,7 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 								>
 									Don't have an account?
 								</Text>
-								<Pressable
-									onPress={() => handleNavigation("Register")}
-									style={({ pressed }) => [
-										pressed && {
-											backgroundColor: colors.ui.accent,
-											borderRadius: 5,
-										},
-									]}
-								>
+								<Pressable onPress={() => handleNavigation("Register")} style={({pressed})=>[pressed&&{backgroundColor:colors.ui.accent, borderRadius:5}]}>
 									<Text
 										style={{
 											fontFamily: fonts.monospace,
@@ -256,15 +248,7 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 								>
 									have an account?
 								</Text>
-								<Pressable
-									onPress={() => handleNavigation("Login")}
-									style={({ pressed }) => [
-										pressed && {
-											backgroundColor: colors.ui.accent,
-											borderRadius: 5,
-										},
-									]}
-								>
+								<Pressable onPress={() => handleNavigation("Login")} style={({pressed})=>[pressed&&{backgroundColor:colors.ui.accent, borderRadius:5}]}>
 									<Text
 										style={{
 											fontFamily: fonts.monospace,

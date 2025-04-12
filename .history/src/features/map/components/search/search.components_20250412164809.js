@@ -8,7 +8,7 @@ export const Search = () => {
 		return (
 		<SearchContainer>
 			<Searchbar
-			  style={{width:"100%"}}
+			  style={{width:"90%"}}
 				onIconPress={() => {
 					search(searchTerm);
 				}}
@@ -16,7 +16,7 @@ export const Search = () => {
 				placeholder="Search for location"
 				value={searchTerm}
 				onChangeText={(text)=>setSearchTerm(text)}
-				onSubmitEditing={()=>search(searchTerm.trim())}
+				onSubmitEditing={()=>search(searchTerm)}
 
 			/>
 		</SearchContainer>

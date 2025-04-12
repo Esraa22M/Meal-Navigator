@@ -40,6 +40,7 @@ export const ResturantScreen = ({ navigation }) => {
 		},
 		[setHideHeader]
 	);
+	const ResturantInfoCardMemo = React.memo(ResturantInfoCard);
 
 	return (
 		<>

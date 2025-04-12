@@ -16,7 +16,7 @@ export const Search = () => {
 				placeholder="Search for location"
 				value={searchTerm}
 				onChangeText={(text)=>setSearchTerm(text)}
-				onSubmitEditing={()=>search(searchTerm.trim())}
+				onSubmitEditing={()=>search(searchTerm)}
 
 			/>
 		</SearchContainer>

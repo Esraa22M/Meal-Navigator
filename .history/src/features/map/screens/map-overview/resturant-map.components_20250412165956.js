@@ -7,17 +7,17 @@ import { LoadingDataIndicator } from "../../../../ui/loading-data-indicator/load
 export const ResturantMapView = () => {
 	const navigation = useNavigation();
 	const route = useRoute();
-	const { resturant } = route?.params;
+	const { resturant } = route.params;
 
 	if (!resturant?.geometry?.location) {
 		return <LoadingDataIndicator />;
 	}
 
 	const { northeast = {}, southwest = {} } = resturant?.viewport || {};
-	const { lat = 0, lng = 0 } = resturant?.geometry?.location;
+	const { lat = 0, lng = 0 } = resturant.geometry.location;
 
-	const latitudeDelta = Math.abs(northeast?.lat - southwest?.lat) || 0.02;
-	const longitudeDelta = Math.abs(northeast?.lng - southwest?.lng) || 0.02;
+	const latitudeDelta = Math.abs(northeast.lat - southwest.lat) || 0.02;
+	const longitudeDelta = Math.abs(northeast.lng - southwest.lng) || 0.02;
 
 	return (
 		<MapViewWrapper
@@ -38,9 +38,9 @@ export const ResturantMapView = () => {
 					})
 				}
 				animation={true}
-				key={resturant?.id}  
-				title={resturant?.name}
-				description={resturant?.description}
+				key={resturant.id}  
+				title={resturant.name}
+				description={resturant.description}
 				coordinate={{
 					latitude: lat,
 					longitude: lng,

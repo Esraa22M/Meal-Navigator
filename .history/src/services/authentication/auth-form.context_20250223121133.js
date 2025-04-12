@@ -90,7 +90,7 @@ export const AuthFormContextProvider = ({ children }) => {
 
 			validationObj = { isValid: isValid };
 		} else if (key === "repeatedPassword") {
-			isValid = matchedPassword(password.trim(), value.trim());
+			isValid = matchedPassword(password, value.trim());
 			validationObj = { isValid: isValid };
 		} else {
 			isValid = checkpassword(value.trim());

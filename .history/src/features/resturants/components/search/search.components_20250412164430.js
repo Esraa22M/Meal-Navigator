@@ -14,7 +14,7 @@ export const Search = ({ setShowSearch }) => {
 					backgroundColor: colors.ui.disabled,
 					borderRadius: 10000,
 					padding: 5,
-					width:"9%",
+					flex:1,
 					marginHorizontal: 5,
 				}}
 			>

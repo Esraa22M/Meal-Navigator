@@ -40,6 +40,7 @@ export const ResturantScreen = ({ navigation }) => {
 		},
 		[setHideHeader]
 	);
+	const ResturantInfoCardMemo = React.memo(ResturantInfoCard);
 
 	return (
 		<>
@@ -76,7 +77,7 @@ export const ResturantScreen = ({ navigation }) => {
 										onPress={handleNavigation.bind(this, dataItem.item)}
 									>
 										<Spacer postion={"bottom"} size="large">
-											<ResturantInfoCard resturant={dataItem.item} />
+											<ResturantInfoCardMemo resturant={dataItem.item} />
 										</Spacer>
 									</Pressable>
 								);

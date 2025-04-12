@@ -41,10 +41,10 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 					(!isValidInputData?.firstName?.isValid ||
 						!isValidInputData?.lastName?.isValid ||
 						!isValidInputData?.password?.isValid ||
-						!inputData?.firstName?.value ||
-						!inputData?.lastName?.value ||
-						!inputData?.password?.value ||
-						!inputData?.repeatedPassword?.value ||
+						inputData?.firstName?.value ||
+						inputData?.lastName?.value ||
+						inputData?.password?.value ||
+						inputData?.repeatedPassword?.value ||
 						!isValidInputData?.repeatedPassword?.isValid)
 				) {
 					setIsLoading(false);

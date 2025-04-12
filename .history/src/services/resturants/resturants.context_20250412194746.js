@@ -4,37 +4,37 @@ import { resturantsRequest, resturantsTransform } from "./resturants.services";
 export const ResturantContext = createContext();
 export const ResturantContextProvider = ({ children }) => {
 	const [resturants, setResturants] = useState([]);
-	const [isLoadingResturants, setIsLoadingResturants] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const { location } = useContext(LocationContext);
 	const reteriveResturants = (locationString) => {
-		setIsLoadingResturants(true);
 		setResturants([]);
+		setIsLoading(true);
 		setError(null);
+
 		setTimeout(() => {
 			resturantsRequest(locationString)
 				.then(resturantsTransform)
 				.then((resturants) => {
-					setIsLoadingResturants(false);
-					setError(null);
+					setIsLoading(false);
 					setResturants(resturants);
 				})
 				.catch((err) => {
-					setIsLoadingResturants(false);
+					setIsLoading(false);
 					setError(err.message);
 				});
 		}, 200);
 	};
 	useEffect(() => {
 		if (location) {
-			const locationString = `${location?.lat},${location?.lng}`;
+			const locationString = `${location.lat},${location.lng}`;
 
 			reteriveResturants(locationString);
 		}
 	}, [location]);
 	return (
 		<ResturantContext.Provider
-			value={{ resturants, isLoadingResturants, error, setIsLoadingResturants }}
+			value={{ resturants, isLoading, error, setIsLoading }}
 		>
 			{children}
 		</ResturantContext.Provider>

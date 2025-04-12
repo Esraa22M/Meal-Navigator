@@ -1,6 +1,8 @@
 import { View } from "react-native";
 import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 export const SearchContainer = styled(View)`
 	padding-top: ${(props) => props.theme.space[3]};
 	padding-bottom: ${(props) => props.theme.space[3]};

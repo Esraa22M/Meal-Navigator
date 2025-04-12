@@ -14,7 +14,7 @@ export const Search = ({ setShowSearch }) => {
 					backgroundColor: colors.ui.disabled,
 					borderRadius: 10000,
 					padding: 5,
-					width:"9%",
+					flex:1,
 					marginHorizontal: 5,
 				}}
 			>
@@ -32,7 +32,7 @@ export const Search = ({ setShowSearch }) => {
 			</View>
 
 			<SearchBar
-				style={{ width: "90%" }}
+				style={{ flex:1}}
 				placeholder="Search for location"
 				value={searchTerm}
 				onChangeText={(text) => setSearchTerm(text)}

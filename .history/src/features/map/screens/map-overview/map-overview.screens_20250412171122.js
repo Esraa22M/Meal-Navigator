@@ -41,7 +41,7 @@ export const MapScreenOverview = ({ navigation }) => {
 							longitude: resturant?.geometry?.location?.lng,
 						}}
 						title={resturant?.name}
-						description={resturant?.description}
+						description={resturant.description}
 						onPress={() => navigation?.navigate("All", { screen: "ResturantDetails", params: { resturant } })}
 					>
 					</Marker>
