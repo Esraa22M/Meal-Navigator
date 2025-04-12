@@ -61,8 +61,6 @@ export const CartItem = ({ item , showToast}) => {
 								justifyContent: "center",
 								alignItems: "center",
 							},
-							pressed && { opacity: 0.5 },
-
 						]}
 						onPress={() => removeItemToCart(item)}
 					>

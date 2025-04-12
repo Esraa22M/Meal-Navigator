@@ -5,7 +5,6 @@ export const showToast = (type , text1, text2) => {
             text1 ,
             text2,
             visibilityTime: 2000,
-             onPress: () => Toast.hide()
 
         });
     };
