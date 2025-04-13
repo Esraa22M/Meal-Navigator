@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, useCallback,Suspense } from "react";
+import React, { useState, useRef, useContext, useCallback } from "react";
 import { Pressable } from "react-native";
 import { ResturantContext } from "../../../../services/resturants/resturants.context";
 import {
@@ -40,7 +40,7 @@ export const ResturantScreen = ({ navigation }) => {
 	);
 
 	return (
-		<Suspense fallback={<LoadingDataIndicator/> }>
+		<>
 			<AppWrapper>
 				{hideHeader && <JumpUpButton pressHandler={jumpToTop} />}
 				<>
@@ -88,6 +88,6 @@ export const ResturantScreen = ({ navigation }) => {
 					<EmptySearch />
 				)}
 			</AppWrapper>
-		</Suspense >
+		</>
 	);
 };

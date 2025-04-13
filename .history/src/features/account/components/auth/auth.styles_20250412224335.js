@@ -17,8 +17,7 @@ export const LoginContainer = styled(ScrollView)`
 	border-width: 0.5px;
 	border-color: ${(props) => props.theme.colors.ui.secondary};
 	background-color: ${({ theme }) => theme.colors.bg.main};
-	padding-horizontal: ${(props) => props.theme.space[3]};
-	padding-vertical: ${(props) => props.theme.space[4]};
+	padding: ${(props) => props.theme.space[3]};
 `;
 export const ImageContainer = styled(View)`
 	position: absolute;

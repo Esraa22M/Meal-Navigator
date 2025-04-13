@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, useCallback,Suspense } from "react";
+import React, { useState, useRef, useContext, useCallback } from "react";
 import { Pressable } from "react-native";
 import { ResturantContext } from "../../../../services/resturants/resturants.context";
 import {
@@ -21,7 +21,6 @@ const RestaurantListView = React.forwardRef((props, ref) => {
 export const ResturantScreen = ({ navigation }) => {
 	const { resturants, isLoadingResturants } = useContext(ResturantContext);
 	const { error, isLoading } = useContext(LocationContext);
-	console.log(isLoadingResturants, isLoading)
 	const handleNavigation = (item) => {
 		navigation?.navigate("ResturantDetails", { resturant: item });
 	};
@@ -40,14 +39,14 @@ export const ResturantScreen = ({ navigation }) => {
 	);
 
 	return (
-		<Suspense fallback={<LoadingDataIndicator/> }>
+		<>
 			<AppWrapper>
 				{hideHeader && <JumpUpButton pressHandler={jumpToTop} />}
 				<>
 					{!hideHeader && <MainHeader navigation={navigation} />}
 
 					{(isLoadingResturants || isLoading) && <LoadingDataIndicator />}
-					</>
+				</>
 				{!error ? (
 					<ListContainer>
 						<RestaurantListView
@@ -88,6 +87,6 @@ export const ResturantScreen = ({ navigation }) => {
 					<EmptySearch />
 				)}
 			</AppWrapper>
-		</Suspense >
+		</>
 	);
 };

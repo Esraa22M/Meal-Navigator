@@ -6,7 +6,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AuthButton } from "../../screens/account/Auth-button.components";
 import { AuthHeader } from "../../../../components/header/authentication-header.components";
 import { AuthFormContext } from "../../../../services/authentication/auth-form.context";
-import { HelperText } from "react-native-paper";
 import { AuthenticationContext } from "../../../../services/authentication/authentication.context";
 import {
 	login,
@@ -228,7 +227,7 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 		>
 			<OuterWrapper>
 				<AuthHeader />
-				<LoginContainer mode={mode} contentContainerStyle={isLogin&&{justifyContent:"center",}} >
+				<LoginContainer mode={mode}>
 					<KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
 						<Spacer size={"large"} postion={"top"} />
 						<AuthFields

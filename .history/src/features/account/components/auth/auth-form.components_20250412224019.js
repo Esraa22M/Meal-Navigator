@@ -228,7 +228,7 @@ export const AuthForm = ({ isLogin, isValidInputData, inputData }) => {
 		>
 			<OuterWrapper>
 				<AuthHeader />
-				<LoginContainer mode={mode} contentContainerStyle={isLogin&&{justifyContent:"center",}} >
+				<LoginContainer mode={mode} contentContainerStyle={isLogin&&{justifyContent:"center", alignItems:"center"}} >
 					<KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
 						<Spacer size={"large"} postion={"top"} />
 						<AuthFields

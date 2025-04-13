@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, useCallback,Suspense } from "react";
+import React, { useState, useRef, useContext, useCallbackوSuspense } from "react";
 import { Pressable } from "react-native";
 import { ResturantContext } from "../../../../services/resturants/resturants.context";
 import {

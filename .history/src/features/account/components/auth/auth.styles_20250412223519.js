@@ -11,14 +11,14 @@ export const LoginContainer = styled(ScrollView)`
 	top: ${({ mode }) => (mode === "register" ? `5%` : `25%`)};
 	z-index: 100;
 	flex: 1;
-	margin: ${(props) => props.theme.space[3]};
+	justify-content:"center";
+	margin-horizontal: ${(props) => props.theme.space[3]};
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
 	border-width: 0.5px;
 	border-color: ${(props) => props.theme.colors.ui.secondary};
 	background-color: ${({ theme }) => theme.colors.bg.main};
 	padding-horizontal: ${(props) => props.theme.space[3]};
-	padding-vertical: ${(props) => props.theme.space[4]};
 `;
 export const ImageContainer = styled(View)`
 	position: absolute;
