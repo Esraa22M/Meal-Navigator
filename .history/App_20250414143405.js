@@ -1,5 +1,4 @@
 import { useFonts } from "expo-font";
-import React, { Suspense, lazy } from "react";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import { ResturantContextProvider } from "./src/services/resturants/resturants.context";
@@ -14,8 +13,7 @@ import { FavouritesContextProvider } from "./src/services/favourites/favourites.
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 import { AuthFormContextProvider } from "./src/services/authentication/auth-form.context";
 import { CartProvider } from "./src/services/cart/cart.context";
-import Toast from "react-native-toast-message";
-import { LoadingDataIndicator } from "./src/ui/loading-data-indicator/loading-data-indicator.components";
+import Toast from 'react-native-toast-message';
 const Navigation = React.lazy(() => import("./src/infastructure/navigation"));
 
 export default function App() {
@@ -27,7 +25,8 @@ export default function App() {
 	if (!fontsLoaded) {
 		return <LoadingOverLay />;
 	}
-
+	
+	  
 	return (
 		<>
 			<ThemeProvider theme={theme}>
@@ -38,10 +37,7 @@ export default function App() {
 								<LocationContextProvider>
 									<ResturantContextProvider>
 										<CartProvider>
-											<Suspense fallback={<LoadingDataIndicator />}>
-												<Navigation />
-											</Suspense>
-										</CartProvider>
+										<Navigation /></CartProvider>
 									</ResturantContextProvider>
 								</LocationContextProvider>
 							</ResturantDetailsContextProvider>
@@ -51,6 +47,7 @@ export default function App() {
 				<ExpoStatusBar style="auto" />
 			</ThemeProvider>
 			<Toast />
+
 		</>
 	);
 }

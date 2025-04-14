@@ -15,7 +15,6 @@ import { AuthenticationContextProvider } from "./src/services/authentication/aut
 import { AuthFormContextProvider } from "./src/services/authentication/auth-form.context";
 import { CartProvider } from "./src/services/cart/cart.context";
 import Toast from "react-native-toast-message";
-import { LoadingDataIndicator } from "./src/ui/loading-data-indicator/loading-data-indicator.components";
 const Navigation = React.lazy(() => import("./src/infastructure/navigation"));
 
 export default function App() {
@@ -38,9 +37,7 @@ export default function App() {
 								<LocationContextProvider>
 									<ResturantContextProvider>
 										<CartProvider>
-											<Suspense fallback={<LoadingDataIndicator />}>
-												<Navigation />
-											</Suspense>
+											<Navigation />
 										</CartProvider>
 									</ResturantContextProvider>
 								</LocationContextProvider>

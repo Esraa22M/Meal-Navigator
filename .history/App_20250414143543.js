@@ -38,9 +38,7 @@ export default function App() {
 								<LocationContextProvider>
 									<ResturantContextProvider>
 										<CartProvider>
-											<Suspense fallback={<LoadingDataIndicator />}>
-												<Navigation />
-											</Suspense>
+											<Suspense fallback={<LoadingDataIndicator/>}><Navigation /></Suspense>
 										</CartProvider>
 									</ResturantContextProvider>
 								</LocationContextProvider>
