@@ -92,9 +92,6 @@ const styles = StyleSheet.create({
 	buttonPressed: {
 		backgroundColor: colors.bg.card,
 		opacity: 0.3,
-		width: 100,
-		height: 100,
-
 		borderRadius:1000
 	},
 	container: {

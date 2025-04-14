@@ -38,7 +38,7 @@ export const CartItem = ({ item, showToast }) => {
 	return (
 		<View style={[styles.container, styles.card]}>
 			<View>
-				<Pressable style={({ pressed }) => pressed && styles.buttonPressed} onPress={handleNavigation}>
+				<Pressable style={({ pressed }) => [pressed && styles.buttonPressed, {borderRadius:1000}]}>
 					<Image source={{ uri: item?.photo }} style={styles.image} />
 				</Pressable>
 				<View style={styles.quantityRow}>
@@ -92,10 +92,6 @@ const styles = StyleSheet.create({
 	buttonPressed: {
 		backgroundColor: colors.bg.card,
 		opacity: 0.3,
-		width: 100,
-		height: 100,
-
-		borderRadius:1000
 	},
 	container: {
 		flex: 1,
