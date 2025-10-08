@@ -1,0 +1,28 @@
+import { SearchContainer } from "./search.styles";
+import { useContext, useState } from "react";
+import { Searchbar } from "react-native-paper";
+import { LocationContext } from "../../../../services/location/location.context";
+export const Search = () => {
+	const {  search,  } = useContext(LocationContext);
+		const [searchTerm, setSearchTerm] = useState("");
+		return (
+		<SearchContainer>
+			<Searchbar
+			  style={{width:"100%"}}
+				onIconPress={() => {
+					search(searchTerm);
+				}}
+                icon="map"
+				placeholder="Search for location"
+				value={searchTerm}
+				onChangeText={(text)=>setSearchTerm(text)}
+				onSubmitEditing={() => {
+					if (searchTerm.trim().length > 0) {
+					  search(searchTerm.trim());
+					}
+				  }}
+				  
+			/>
+		</SearchContainer>
+	);
+};
